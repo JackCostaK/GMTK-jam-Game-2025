@@ -197,3 +197,11 @@ Received Import Request.
 Start importing Assets/UniversalRenderPipelineGlobalSettings.asset using Guid(93b439a37f63240aca3dd4e01d978a9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08254b431e78862a1490bbccd82936fe') in 0.087313 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 1348.657009 seconds.
+  path: Assets/Main.unity
+  artifactKey: Guid(e47ea671b95a741cc827d11e9894d84f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Main.unity using Guid(e47ea671b95a741cc827d11e9894d84f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f681fd1b72f18ee43fb1175c5684d93d') in 0.101510 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
