@@ -1,0 +1,30 @@
+touch .gitignore
+
+# Unity Generated
+        /[Ll]ibrary/
+        /[Tt]emp/
+        /[Oo]bj/
+        /[Bb]uild/
+        /[Ll]ogs/
+        /[Ee]xports/
+
+        # Visual Studio
+        .vs/
+        *.csproj
+        *.unityproj
+        *.sln
+        *.suo
+        *.user
+        *.userprefs
+
+        # Rider
+        .idea/
+
+        # Other
+        *.pidb
+        *.booproj
+        *.svd
+        *.pdb
+        *.opendb
+        *.DS_Store
+        *.meta
