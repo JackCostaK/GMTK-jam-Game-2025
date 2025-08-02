@@ -68,14 +68,19 @@ public class PlayerCtrl : MonoBehaviour
 
             // Set animation parameters based on the direction of movement.
             // We use a single `moveInput` vector to handle all four directions more cleanly.
-            animator.SetBool("IsWalking", true);
-            animator.SetFloat("MoveX", moveInput.x);
-            animator.SetFloat("MoveY", moveInput.y);
+            if (moveInput.x < 0)
+                animator.SetBool("IsWalkingLeft", true);
+            else if (moveInput.x > 0)
+                animator.SetBool("IsWalkingRight", true);
+            else if (moveInput.y != 0)
+                animator.SetBool("IsWalkingUp", true);
         }
         else
         {
             // If the player is not moving, stop the walking animation.
-            animator.SetBool("IsWalking", false);
+            animator.SetBool("IsWalkingLeft", false);
+            animator.SetBool("IsWalkingRight", false);
+            animator.SetBool("IsWalkingUp", false);
         }
     }
 }

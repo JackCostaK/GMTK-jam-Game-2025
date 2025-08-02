@@ -5,7 +5,7 @@ using UnityEngine;
 public class FollowThePath : MonoBehaviour {
 
     [SerializeField]
-    private Transform[] waypoints;
+    public Transform[] waypoints;
 
     [SerializeField]
     private float moveSpeed = 2f;

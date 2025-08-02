@@ -10,11 +10,14 @@ public class PickUp : MonoBehaviour
     public GameObject DestroyEffect;
     private GameObject itemHolding;
     public FollowThePath pathfollow;
+    public Vector3 targetPosition;
+    public GameObject objectToMove; 
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -64,10 +67,19 @@ public class PickUp : MonoBehaviour
             item.transform.position = Vector3.Lerp(StartPoint, EndPoint, i * .04f);
             yield return null;
         }
+        if (objectToMove != null)
+        {
+            objectToMove.transform.position = EndPoint;
+            
+            Rigidbody2D rbToMove = objectToMove.GetComponent<Rigidbody2D>();
+            if (rbToMove != null)
+            {
+                rbToMove.simulated = false; 
+            }
+        }
         if (item.GetComponent<Rigidbody2D>())
             item.GetComponent<Rigidbody2D>().simulated = true;
         Instantiate(DestroyEffect, item.transform.position, Quaternion.identity);
-        Destroy(DestroyEffect);
         Destroy(item);
     }
 }

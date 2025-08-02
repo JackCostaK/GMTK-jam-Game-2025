@@ -688,6 +688,7 @@ MonoBehaviour:
   waypoints:
   - {fileID: 1531527629}
   - {fileID: 1717261352}
+  - {fileID: 3966871895028096114, guid: 435422f67fe8646f982e45f564accc0b, type: 3}
   moveSpeed: 2
   rotationSpeed: 5
   childGameObject: {fileID: 645560540}
@@ -1555,7 +1556,10 @@ MonoBehaviour:
   PickUpMask:
     serializedVersion: 2
     m_Bits: 128
-  DestroyEffect: {fileID: 0}
+  DestroyEffect: {fileID: 4155665174725365538, guid: ceac765e5cb5ff549855b23d2829f278, type: 3}
+  pathfollow: {fileID: 0}
+  targetPosition: {x: 0, y: 0, z: 0}
+  objectToMove: {fileID: 1717261351}
 --- !u!1 &1210038850
 GameObject:
   m_ObjectHideFlags: 0
