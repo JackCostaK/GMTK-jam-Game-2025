@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Controls player movement and animation.
 /// </summary>
 public class PlayerCtrl : MonoBehaviour
 {
+    public UnityEvent walking = null;
+
     // Public variables to be set in the Unity Inspector.
     public Animator animator;
     public float speed;
@@ -56,10 +59,13 @@ public class PlayerCtrl : MonoBehaviour
         // Set the player's velocity directly based on input and speed.
         // Using `rb.velocity` in Update() is fine for non-physics-based movement.
         rb.velocity = moveInput.normalized * speed;
+        
+
 
         // Check if the player is moving.
         if (moveInput.sqrMagnitude > 0.1f)
         {
+            
             // If the PickUp component exists, update its direction.
             if (pickUp != null)
             {
@@ -70,6 +76,7 @@ public class PlayerCtrl : MonoBehaviour
             // We use a single `moveInput` vector to handle all four directions more cleanly.
             if (moveInput.x < 0)
                 animator.SetBool("IsWalkingLeft", true);
+
             else if (moveInput.x > 0)
                 animator.SetBool("IsWalkingRight", true);
             else if (moveInput.y != 0)
@@ -77,6 +84,7 @@ public class PlayerCtrl : MonoBehaviour
         }
         else
         {
+            walking.Invoke();
             // If the player is not moving, stop the walking animation.
             animator.SetBool("IsWalkingLeft", false);
             animator.SetBool("IsWalkingRight", false);
