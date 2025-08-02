@@ -13,12 +13,18 @@ public class PickUp : MonoBehaviour
     public Vector3 targetPosition;
     public GameObject objectToMove; 
 
+    public float timerDuration = 7f; 
+    private float timeRemaining;
+    private bool timerIsActive = false;
+    private Vector3 originalPositionOfObjectToMove;
 
-    // Start is called before the first frame update
     void Start()
     {
-
+    if (objectToMove != null)
+    {
+        originalPositionOfObjectToMove = objectToMove.transform.position;
     }
+}
 
     // Update is called once per frame
     void Update()
@@ -55,6 +61,24 @@ public class PickUp : MonoBehaviour
                 itemHolding = null;
             }
         }
+
+        if (timerIsActive)
+        {
+            if (timeRemaining > 0)
+            {
+                timeRemaining -= Time.deltaTime;
+            }
+            else
+            {
+                // Timer has expired, move the object back
+                if (objectToMove != null)
+                {
+                    objectToMove.transform.position = originalPositionOfObjectToMove;
+                    Debug.Log("Object has returned to its original position.");
+                }
+                timerIsActive = false;
+            }
+        }
     }
 
     IEnumerator ThrowItem(GameObject item)
@@ -71,11 +95,9 @@ public class PickUp : MonoBehaviour
         {
             objectToMove.transform.position = EndPoint;
             
-            Rigidbody2D rbToMove = objectToMove.GetComponent<Rigidbody2D>();
-            if (rbToMove != null)
-            {
-                rbToMove.simulated = false; 
-            }
+            // Start the timer to move it back after a duration
+            timerIsActive = true;
+            timeRemaining = timerDuration;
         }
         if (item.GetComponent<Rigidbody2D>())
             item.GetComponent<Rigidbody2D>().simulated = true;
