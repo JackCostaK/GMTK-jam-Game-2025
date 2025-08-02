@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Die : MonoBehaviour
 {
+
+    public GameObject explosion;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +21,7 @@ public class Die : MonoBehaviour
 
     public void Explode()
     {
+        Instantiate(explosion, this.transform.position, this.transform.rotation);
         Destroy(gameObject);
     }
 }
