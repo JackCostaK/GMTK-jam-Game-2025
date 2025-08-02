@@ -34,15 +34,20 @@ public class KillEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D killColider)
     {
-        if (killColider.CompareTag("KillSpot"))
+        if (killColider.CompareTag("Player"))
         {
+            print("hey");
             inSpot.Invoke();
             canKill = true;
+        }
+        else
+        {
+            print(killColider.tag);
         }
     }
     private void OnTriggerExit2D(Collider2D killColider)
     {
-        if (killColider.CompareTag("KillSpot"))
+        if (killColider.CompareTag("Player"))
         {
             leftSpot.Invoke();
             canKill = false;
