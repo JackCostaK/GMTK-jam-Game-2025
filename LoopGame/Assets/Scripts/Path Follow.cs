@@ -14,15 +14,38 @@ public class FollowThePath : MonoBehaviour {
 
     private bool forwards = true;
 
-	private void Start()
+    private Transform target;
+    public float rotationSpeed = 5f; // Adjust for desired rotation speed
+
+    private void Start()
     {
 
         transform.position = waypoints[waypointIndex].transform.position;
     }
-	
-	private void Update () {
 
+    private void Update()
+    {
+        target = waypoints[waypointIndex].transform;
         Move();
+        if (target == null) return;
+
+            // Calculate the vector from the sprite to the target
+            Vector3 vectorToTarget = target.position - transform.position;
+
+            // Calculate the angle in degrees
+            float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
+
+        // If your sprite's "forward" direction (the direction it faces when angle is 0)
+        // is not aligned with the positive X-axis, you might need to adjust the angle.
+        // For example, if it faces "up" (positive Y) at angle 0, subtract 90:
+        angle -= 90f; 
+            
+
+            // Create a Quaternion from the angle around the Z-axis (for 2D rotation)
+        Quaternion targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+            // Smoothly rotate the sprite towards the target rotation
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
 	}
 
     private void Move()

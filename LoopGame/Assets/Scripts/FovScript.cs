@@ -16,19 +16,25 @@ public class FovScript : MonoBehaviour
         float angle = Vector3.Angle(dir, fovPoint.up);
         RaycastHit2D r = Physics2D.Raycast(fovPoint.position, dir, range);
 
+
+
         if (angle < (fovAngle / 2))
         {
             if (r)
             {
+                Debug.DrawRay(fovPoint.position, dir * range, Color.red);
+             
                 if (r.collider.CompareTag("Player"))
                 {
-                    print("Seen");
+                    print("Player seen!");
                 }
                 else
                 {
-                    print("Not seen");
+                    print("Not the player, tag is: " + r.collider.tag);
                 }
             }
+                
+            
 
             else
             {
