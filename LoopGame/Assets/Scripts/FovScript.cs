@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FovScript : MonoBehaviour
 {
     public float fovAngle = 90f;
     public Transform fovPoint;
     public float range = 8;
+
+    public UnityEvent caught = null;
 
     public Transform target;
 
@@ -26,7 +29,7 @@ public class FovScript : MonoBehaviour
              
                 if (r.collider.CompareTag("Player"))
                 {
-                    print("Player seen!");
+                    caught.Invoke();
                 }
                 else
                 {
