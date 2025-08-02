@@ -562,6 +562,7 @@ MonoBehaviour:
   - {fileID: 1717261352}
   moveSpeed: 2
   rotationSpeed: 5
+  childGameObject: {fileID: 0}
 --- !u!43 &484731898
 Mesh:
   m_ObjectHideFlags: 0
@@ -2012,9 +2013,9 @@ SceneRoots:
   - {fileID: 1178796696}
   - {fileID: 379540672}
   - {fileID: 130073366}
-  - {fileID: 341113652}
   - {fileID: 943170709}
   - {fileID: 215296062}
   - {fileID: 629230987}
+  - {fileID: 341113652}
   - {fileID: 1531527629}
   - {fileID: 1717261352}
