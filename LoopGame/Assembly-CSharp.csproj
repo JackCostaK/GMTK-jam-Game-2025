@@ -69,8 +69,8 @@
     <Compile Include="Assets/Scripts/LevelLoader.cs" />
     <Compile Include="Assets/Scripts/FovScript.cs" />
     <Compile Include="Assets/Scripts/PlayerMovement.cs" />
-    <Compile Include="Assets/LevelComplete.cs" />
     <Compile Include="Assets/Scripts/KillEnemy.cs" />
+    <Compile Include="Assets/Scripts/LevelComplete.cs" />
     <Compile Include="Assets/Scripts/Path Follow.cs" />
   </ItemGroup>
   <ItemGroup>
