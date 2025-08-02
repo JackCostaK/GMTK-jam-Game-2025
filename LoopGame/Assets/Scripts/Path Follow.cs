@@ -18,6 +18,7 @@ public class FollowThePath : MonoBehaviour {
     public float rotationSpeed = 5f; // Adjust for desired rotation speed
 
     [SerializeField]private Transform childGameObject;
+    public Animator animator;
 
     private void Start()
     {
@@ -54,6 +55,9 @@ public class FollowThePath : MonoBehaviour {
             // Smoothly rotate the sprite towards the target rotation
             childGameObject.rotation = Quaternion.Slerp(childGameObject.rotation, targetRotation, Time.deltaTime * rotationSpeed);
         }
+        else
+            animator.SetBool("IsWalking", false);
+            
     }
 
     private void Move()
