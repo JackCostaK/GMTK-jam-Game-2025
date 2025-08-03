@@ -26,15 +26,16 @@ public class FovScript : MonoBehaviour
             if (r)
             {
                 Debug.DrawRay(fovPoint.position, dir * range, Color.red);
-             
-                if (r.collider.CompareTag("Player"))
-                {
+
+                //if (r.collider.CompareTag("Player"))
+                //{
                     caught.Invoke();
-                }
-                else
-                {
-                    print("Not the player, tag is: " + r.collider.tag);
-                }
+                 //   print("seen");
+                //}
+                //else
+                //{
+                 //   print("Not the player, tag is: " + r.collider.name);
+                //}
             }
                 
             
